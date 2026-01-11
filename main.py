@@ -16,7 +16,15 @@ from skill_routes import router as skill_router
 from job_routes import router as job_router
 
 app = FastAPI(title="Kanban Job Tracker API")
+from fastapi.middleware.cors import CORSMiddleware
 
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=["*"],  # TEMP: allow all for now
+    allow_credentials=True,
+    allow_methods=["*"],
+    allow_headers=["*"],
+)
 # Create tables
 Base.metadata.create_all(bind=engine)
 
