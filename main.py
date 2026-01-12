@@ -14,13 +14,13 @@ from auth_routes import router as auth_router
 from user_routes import router as user_router
 from skill_routes import router as skill_router
 from job_routes import router as job_router
+from fastapi.middleware.cors import CORSMiddleware
 
 app = FastAPI(title="Kanban Job Tracker API")
-from fastapi.middleware.cors import CORSMiddleware
 
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["*"],  # TEMP: allow all for now
+    allow_origins=["*"],  
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],
